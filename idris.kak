@@ -271,10 +271,9 @@ declare-user-mode idris
 
 map global user i ': enter-user-mode<space>idris<ret>' \
     -docstring "Enter Idris user-mode"
-
 map global idris r ': idris-reload<ret>' \
     -docstring "Reloads and type-checks the file in the current buffer"
-map global idris R ': idris-repl<ret>' h
+map global idris R ': idris-repl<ret>' \
     -docstring "Opens an Idris REPL"
 map global idris t ': idris-show-type<ret>' \
     -docstring "Reloads and echoes type of the selection"
