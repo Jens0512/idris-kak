@@ -123,8 +123,12 @@ define-command -docstring "Writes and reloads the current file in buffer" \
     }
 }
 
+define-command -docstring "Open an Idris REPL" idris-repl %{
+    repl %opt{idris_cmd}
+}
+
 define-command idris-show-type %{
-    idris-reload-quiet
+            idris-reload-quiet
     idris-wrap-selection %< idris-select-var >
     idris-info-output ":type"
 }
@@ -270,6 +274,8 @@ map global user i ': enter-user-mode<space>idris<ret>' \
 
 map global idris r ': idris-reload<ret>' \
     -docstring "Reloads and type-checks the file in the current buffer"
+map global idris R ': idris-repl<ret>' h
+    -docstring "Opens an Idris REPL"
 map global idris t ': idris-show-type<ret>' \
     -docstring "Reloads and echoes type of the selection"
 map global idris d ': idris-show-doc<ret>' \
