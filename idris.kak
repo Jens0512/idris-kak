@@ -172,6 +172,11 @@ define-command idris-case-split %{
     idris-exec-completion ":casesplit!"
 }
 
+define-command idris-make-case %{
+    idris-wrap-selection %< idris-select-hole >
+    idris-exec-completion ":makecase!"
+}
+
 define-command idris-make-with %{
     idris-wrap-selection %< idris-select-var >
     idris-exec-completion ":makewith!"
@@ -291,6 +296,8 @@ map global idris <a-s> ': idris-proof-search-given-hints<ret>' \
     -docstring "Searches for a solution to the hole given hints"
 map global idris m ': idris-add-missing<ret>' \
     -docstring "Adds the functions missing clauses to cover all inputs"
+map global idris <a-m> ': idris-make-case<ret>' \
+    -docstring "Makes a new case-expression for the hole"
 map global idris w ': idris-make-with<ret>' \
     -docstring "Adds a with rule to the pattern clause"
 map global idris e ': idris-eval-prompt<ret>' \
